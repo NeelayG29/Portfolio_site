@@ -40,7 +40,7 @@ export default function CertificationCard({
               data-testid="button-verify"
             >
               <a href={verifyUrl} target="_blank" rel="noopener noreferrer">
-                Verify
+                View Cert
                 <ExternalLink className="w-4 h-4 ml-2" />
               </a>
             </Button>
