@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { GraduationCap, MapPin } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
 
 interface EducationCardProps {
   degree: string;
@@ -22,7 +23,14 @@ export default function EducationCard({
   courses,
 }: EducationCardProps) {
   return (
-    <Card className="p-6 md:p-8 hover-elevate" data-testid="card-education">
+    <motion.div
+      initial={{ opacity: 0, x: -30 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6 }}
+      whileHover={{ scale: 1.02 }}
+    >
+      <Card className="p-6 md:p-8 hover-elevate" data-testid="card-education">
       <div className="flex items-start gap-4 mb-4">
         <div className="p-3 bg-primary/10 rounded-md">
           <GraduationCap className="w-6 h-6 text-primary" />
@@ -60,13 +68,23 @@ export default function EducationCard({
           </h4>
           <div className="flex flex-wrap gap-2">
             {courses.map((course, index) => (
-              <Badge key={index} variant="outline" data-testid={`course-${index}`}>
-                {course}
-              </Badge>
+              <motion.div
+                key={index}
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.05 }}
+                whileHover={{ scale: 1.05 }}
+              >
+                <Badge variant="outline" data-testid={`course-${index}`}>
+                  {course}
+                </Badge>
+              </motion.div>
             ))}
           </div>
         </div>
       )}
     </Card>
+    </motion.div>
   );
 }

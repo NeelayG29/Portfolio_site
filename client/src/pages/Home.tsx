@@ -5,6 +5,8 @@ import SkillCategory from "@/components/SkillCategory";
 import EducationCard from "@/components/EducationCard";
 import CertificationCard from "@/components/CertificationCard";
 import Footer from "@/components/Footer";
+import AnimatedBackground from "@/components/AnimatedBackground";
+import { motion } from "framer-motion";
 import {
   Cloud,
   Database,
@@ -244,11 +246,18 @@ export default function Home() {
 
       <Hero />
 
-      <section id="experience" className="py-16 md:py-24 lg:py-32 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-6 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+      <section id="experience" className="relative py-16 md:py-24 lg:py-32 bg-muted/30 overflow-hidden">
+        <AnimatedBackground />
+        <div className="max-w-6xl mx-auto px-6 md:px-8 relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold mb-12 text-center"
+          >
             Work Experience
-          </h2>
+          </motion.h2>
           <div className="space-y-8">
             {experiences.map((exp, index) => (
               <ExperienceCard key={index} {...exp} />
@@ -257,11 +266,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="skills" className="py-16 md:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-6 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+      <section id="skills" className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+        <AnimatedBackground />
+        <div className="max-w-6xl mx-auto px-6 md:px-8 relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold mb-12 text-center"
+          >
             Technical Skills
-          </h2>
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {skillCategories.map((category, index) => (
               <SkillCategory key={index} {...category} />
@@ -270,11 +286,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="education" className="py-16 md:py-24 lg:py-32 bg-muted/30">
-        <div className="max-w-6xl mx-auto px-6 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+      <section id="education" className="relative py-16 md:py-24 lg:py-32 bg-muted/30 overflow-hidden">
+        <AnimatedBackground />
+        <div className="max-w-6xl mx-auto px-6 md:px-8 relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold mb-12 text-center"
+          >
             Education
-          </h2>
+          </motion.h2>
           <div className="space-y-8">
             {education.map((edu, index) => (
               <EducationCard key={index} {...edu} />
@@ -283,11 +306,18 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="certifications" className="py-16 md:py-24 lg:py-32">
-        <div className="max-w-6xl mx-auto px-6 md:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+      <section id="certifications" className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+        <AnimatedBackground />
+        <div className="max-w-6xl mx-auto px-6 md:px-8 relative z-10">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-4xl font-bold mb-12 text-center"
+          >
             Certifications
-          </h2>
+          </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {certifications.map((cert, index) => (
               <CertificationCard key={index} {...cert} />

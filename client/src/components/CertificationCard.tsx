@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Award, ExternalLink, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 interface CertificationCardProps {
   name: string;
@@ -16,11 +17,28 @@ export default function CertificationCard({
   verifyUrl,
 }: CertificationCardProps) {
   return (
-    <Card className="p-6 md:p-8 hover-elevate" data-testid="card-certification">
+    <motion.div
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.05, rotate: 1 }}
+    >
+      <Card className="p-6 md:p-8 hover-elevate" data-testid="card-certification">
       <div className="flex items-start gap-4">
-        <div className="p-3 bg-primary/10 rounded-md flex-shrink-0">
+        <motion.div
+          animate={{
+            rotate: [0, 5, -5, 0],
+          }}
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="p-3 bg-primary/10 rounded-md flex-shrink-0"
+        >
           <Award className="w-8 h-8 text-primary" />
-        </div>
+        </motion.div>
         <div className="flex-1 min-w-0">
           <h3 className="text-xl md:text-2xl font-semibold mb-2" data-testid="text-cert-name">
             {name}
@@ -48,5 +66,6 @@ export default function CertificationCard({
         </div>
       </div>
     </Card>
+    </motion.div>
   );
 }

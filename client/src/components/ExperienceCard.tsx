@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle2 } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ExperienceCardProps {
   title: string;
@@ -20,7 +21,14 @@ export default function ExperienceCard({
   technologies,
 }: ExperienceCardProps) {
   return (
-    <Card className="p-6 md:p-8 hover-elevate" data-testid="card-experience">
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ scale: 1.02 }}
+    >
+      <Card className="p-6 md:p-8 hover-elevate" data-testid="card-experience">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6">
         <div className="flex-1">
           <h3 className="text-xl md:text-2xl font-semibold mb-2" data-testid="text-job-title">
@@ -60,11 +68,21 @@ export default function ExperienceCard({
 
       <div className="flex flex-wrap gap-2">
         {technologies.map((tech, index) => (
-          <Badge key={index} variant="secondary" data-testid={`tech-${index}`}>
-            {tech}
-          </Badge>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.05 }}
+            whileHover={{ scale: 1.1 }}
+          >
+            <Badge variant="secondary" data-testid={`tech-${index}`}>
+              {tech}
+            </Badge>
+          </motion.div>
         ))}
       </div>
-    </Card>
+      </Card>
+    </motion.div>
   );
 }
