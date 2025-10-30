@@ -228,7 +228,7 @@ export default function Home() {
       name: "Certified Kubernetes Administrator (CKA)",
       issuer: "The Linux Foundation",
       date: "Feb 2024",
-      verifyUrl: "https://www.cncf.io/certification/cka/",
+      verifyUrl: "https://www.credly.com/badges/a066271c-6909-4dcf-bb3e-1d10f3a05aad/public_url",
     },
     {
       name: "Architecting on AWS",
