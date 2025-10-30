@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, MapPin, ArrowDown } from "lucide-react";
-import heroImage from "@assets/generated_images/DevOps_infrastructure_hero_background_915fc5d6.png";
+import heroImage from "@assets/generated_images/Infrastructure_automation_DevOps_background_fc07c5b6.png";
 
 export default function Hero() {
   const metrics = [

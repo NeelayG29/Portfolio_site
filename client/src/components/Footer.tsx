@@ -63,9 +63,6 @@ export default function Footer() {
 
         <div className="mt-8 pt-8 border-t border-border text-center text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Neelay Goswami. All rights reserved.</p>
-          <p className="mt-2">
-            Open to opportunities in DevOps and Site Reliability Engineering
-          </p>
         </div>
       </div>
     </footer>
